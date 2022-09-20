@@ -1,0 +1,133 @@
+.upload-img-preview {
+  text-align: center;
+}
+.upload-previe-box {
+  width: 80%;
+  height: 1000px;
+}
+#upload-preview {
+  width: 1000px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: solid 1px black;
+}
+.upload-modal {
+  background-color: rgb(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 5;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+}
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+.upload-modal-main {
+  background-image: url('https://github.com/mdab4793/wewrite/blob/main/%E1%84%87%E1%85%AE%E1%86%B0%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%87%E1%85%A9%E1%84%85%E1%85%B3%E1%86%B7%E1%84%83%E1%85%A1%E1%86%AF.jpeg?raw=true');
+  width: 40%;
+  height: 20%;
+  position: relative;
+  top: 10%;
+  left: 30%;
+  border-radius: 15px;
+  border-style: none;
+  color: white;
+}
+.upload-modal-title {
+  padding: 40px;
+}
+
+.upload-editor-menu button {
+  border-style: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.upload-modal-main button {
+  background-color: #d49466;
+
+  border-style: none;
+  border-radius: 4px;
+  margin: 3px;
+  padding: 12px;
+  justify-content: space-between;
+}
+.upload-modal-main button:hover {
+  background-color: rgb(211, 175, 89);
+}
+.upload {
+  margin-top: 10px;
+  padding: 5px;
+  border-style: none;
+  background-color: #d49466;
+}
+.upload:hover {
+  background-color: rgb(211, 175, 89);
+}
+
+.title {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.origin {
+  display: flex;
+}
+.source {
+  position: relative;
+  top: 10px;
+  left: 74%;
+}
+/* #share {
+  position: relative;
+  bottom: 100px;
+}
+#nav-write {
+  display: none;
+}
+#nav-mywrite {
+  display: none;
+}
+
+.chat-content {
+  height: 450px;
+  overflow-y: scroll;
+  padding: 10px;
+  display: flex;
+}
+.chat-content li {
+  margin-top: 10px;
+}
+.text-small {
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 0;
+}
+.chat-box {
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+}
+.chat-name {
+  color: wheat;
+  background-color: black;
+}
+.comment-btn {
+  display: none;
+}
+#chat-input {
+  display: none;
+}
+#nav-write {
+  display: none;
+}
+#nav-mywrite {
+  display: none;
+} */

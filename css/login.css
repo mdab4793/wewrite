@@ -1,0 +1,32 @@
+.login {
+  text-align: center;
+  margin-top: 200px;
+}
+.email,
+.pw {
+  width: 50%;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 4px;
+}
+.login-btn,
+.register-btn {
+  border-style: none;
+  margin: 2px;
+  background-color: #d49466;
+  color: black;
+  border-radius: 5px;
+  padding: 4px;
+}
+.login-btn:hover,
+.register-btn:hover {
+  background-color: rgb(211, 175, 89);
+}
+
+#nav-write {
+  display: none;
+}
+#nav-mywrite {
+  display: none;
+}

@@ -1,0 +1,34 @@
+.my-main {
+  display: flex;
+  padding: 10px;
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
+}
+.my-thumbnail {
+  max-width: 600px;
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+.my-content {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  top: 45%;
+}
+.detail-pic {
+  width: 100%;
+  height: 900px;
+  background-size: cover;
+  background-position: center;
+}
+.my-main-title {
+  text-decoration: none;
+  color: rgb(226, 151, 38);
+}
+.my-main-title:hover {
+  color: rgb(211, 175, 89);
+}

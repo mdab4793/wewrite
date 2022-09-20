@@ -1,0 +1,46 @@
+.register-container {
+  text-align: center;
+  margin-top: 200px;
+}
+.register-name {
+}
+.register-email {
+}
+.register-pw,
+.register-pw-check {
+  margin: 4px;
+}
+.register-name,
+.register-email,
+.register-pw,
+.register-pw-check {
+  text-align: center;
+  width: 50%;
+  padding: 15px;
+  border-radius: 5px;
+}
+.register-btn {
+  border-style: none;
+  margin: 2px;
+  background-color: rgb(226, 151, 38);
+  color: black;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+.pw-success {
+  display: none;
+}
+.pw-failed {
+  display: none;
+}
+.modal-body {
+  color: black;
+}
+
+#nav-write {
+  display: none;
+}
+#nav-mywrite {
+  display: none;
+}

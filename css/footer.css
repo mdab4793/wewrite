@@ -1,0 +1,16 @@
+.footer {
+  height: 120px;
+  width: 100%;
+  background-image: url('https://github.com/mdab4793/wewrite/blob/main/%E1%84%87%E1%85%A1%E1%86%B7%E1%84%92%E1%85%A1%E1%84%82%E1%85%B3%E1%86%AF2.jpg?raw=true');
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 0;
+  position: relative;
+  top: 160px;
+  transform: translateY(-100%);
+}
+.footer img {
+  width: 20px;
+  height: 20px;
+}

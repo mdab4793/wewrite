@@ -1,0 +1,171 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+.detail-main {
+  width: 100%;
+}
+.detail-pic {
+  width: 100%;
+  height: 900px;
+  background-size: cover;
+  background-position: center;
+}
+
+.detail-content {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  bottom: 550px;
+}
+.detail-title {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+}
+.detail-author {
+  text-align: right;
+  font-size: 20px;
+}
+
+.detail-edit-delete {
+  display: flex;
+  justify-content: right;
+}
+.detail-edit,
+.detail-delete {
+  border-radius: 5px;
+  border-style: none;
+  background-color: #d49466;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  margin-left: 2px;
+}
+.detail-edit:hover,
+.detail-delete:hover {
+  background-color: rgb(211, 175, 89);
+}
+
+.detail-chat-box {
+  width: 100%;
+  justify-content: center;
+
+  margin-top: 50px;
+}
+.detail-chat-container {
+  border-radius: 5px;
+}
+.input-group {
+  background-color: #c9c6c6;
+  width: 100%;
+  height: 140px;
+  padding: 40px;
+  font-weight: 200;
+  border-radius: 4px;
+  margin-bottom: 30px;
+}
+.input-group h6 {
+  position: relative;
+  bottom: 25px;
+  right: 20px;
+  color: black;
+}
+.chat-content {
+  padding-top: 14px;
+  padding-left: 13px;
+}
+.chat-input {
+  width: 90%;
+  height: 50px;
+  background-color: #ffffff;
+  margin: 25px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border-style: none;
+  color: black;
+}
+.chat-name {
+  width: 5%;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+}
+.chat-box {
+  padding: 5px;
+}
+
+.chat-send {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 40px;
+  top: 65px;
+  padding: 3px;
+  border-style: none;
+  background-color: #d49466;
+  color: black;
+}
+.chat-send:hover {
+  background-color: rgb(211, 175, 89);
+}
+.chat-comment {
+  display: flex;
+}
+
+.chat-delete {
+  display: none;
+}
+.chat-delete #darkModeToggle {
+  border-radius: 5px;
+}
+.detail-modal {
+  background-color: rgb(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 5;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+}
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.detail-modal-main {
+  /* background-color: #3a3333; */
+  color: white;
+  width: 40%;
+  height: 20%;
+  position: relative;
+  top: 30%;
+  left: 30%;
+  border-radius: 15px;
+  border-style: none;
+  background-image: url('https://github.com/mdab4793/wewrite/blob/main/%E1%84%87%E1%85%AE%E1%86%B0%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%87%E1%85%A9%E1%84%85%E1%85%B3%E1%86%B7%E1%84%83%E1%85%A1%E1%86%AF.jpeg?raw=true');
+}
+.detail-modal-title {
+  padding: 40px;
+}
+.detail-modal-main div {
+  display: flex;
+  justify-content: center;
+}
+.detail-modal-main button {
+  background-color: #d49466;
+  color: black;
+  border-style: none;
+  border-radius: 4px;
+  margin: 3px;
+  padding: 12px;
+  justify-content: space-between;
+}
+.detail-modal-main button:hover {
+  color: rgb(211, 175, 89);
+}
+@media screen and (max-width: 768px) {
+  .detail-edit-delete {
+  }
+}

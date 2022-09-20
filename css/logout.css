@@ -1,0 +1,28 @@
+.container h4 {
+  padding-top: 100px;
+}
+.logout-head {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.logout-btn {
+  border-style: none;
+  border-radius: 2px;
+  position: relative;
+  width: 10%;
+  left: 45%;
+  margin-top: 50px;
+  background-color: #d49466;
+  color: black;
+}
+.logout-btn:hover {
+  background-color: rgb(211, 175, 89);
+}
+
+#nav-write {
+  display: none;
+}
+#nav-mywrite {
+  display: none;
+}

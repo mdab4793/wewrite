@@ -1,0 +1,154 @@
+#darkModeToggle {
+  border-radius: 5px;
+}
+/* 다크모드 활성화 시 */
+.dark-mode {
+  background-color: #111;
+  color: #fff;
+}
+
+.dark-mode .btn {
+  color: wheat;
+}
+
+body {
+  margin: 0; /*웹 페이지를 상단 바가 다 채움*/
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.btn-mode {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-style: none;
+}
+.btn-mode img {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar {
+  display: flex; /*한 줄에 나란히*/
+  justify-content: space-between; /*스페이스를 사이사이에 넣음*/
+  align-items: center; /*중앙 배치*/
+  padding: 35px 35px; /*navbar 크기 조정*/
+  background-image: url('https://github.com/mdab4793/wewrite/blob/main/%E1%84%87%E1%85%A1%E1%86%AB%E1%84%83%E1%85%A1%E1%86%AF.jpeg?raw=true');
+  background-position-y: 38%;
+  background-size: cover;
+
+  background-position-x: center;
+}
+.navbar-dark {
+  display: flex; /*한 줄에 나란히*/
+  justify-content: space-between; /*스페이스를 사이사이에 넣음*/
+  align-items: center; /*중앙 배치*/
+  padding: 35px 35px; /*navbar 크기 조정*/
+  background-image: url('https://github.com/mdab4793/wewrite/blob/main/%E1%84%8E%E1%85%A9%E1%84%89%E1%85%B3%E1%86%BC%E1%84%83%E1%85%A1%E1%86%AF.jpeg?raw=true');
+  background-size: cover;
+  background-position-y: 43%;
+  background-position-x: center;
+}
+.navbar a {
+  text-decoration: none; /*.없앰*/
+  color: white;
+}
+
+.navbar-title {
+  font-size: 24px;
+  color: white;
+}
+
+.navbar-menu {
+  display: flex; /*한 줄에 하나씩 나옴*/
+  list-style: none; /*홈이 같지 않음*/
+  padding-left: 0; /*이렇게 지정해서 중앙에 배치*/
+}
+.navbar-menu li {
+  padding: 8px 12px; /*메뉴안 내용들의 간격 조정*/
+}
+
+.navbar-title:hover {
+  color: #d49466;
+}
+.userName {
+  color: white;
+}
+
+.navbar-title a:hover {
+  color: white;
+}
+
+.navbar-sub-menu {
+  color: white;
+  display: flex;
+  list-style: none;
+  padding-left: 0; /*중앙 배치*/
+}
+.navbar-sub-menu li {
+  padding: 8px 12px;
+}
+.navbar-toggleBtn {
+  /*위치 조정*/
+  display: none;
+  position: absolute; /*제일 위에 배치*/
+  right: 32px; /*오른쪽에서 32px 떨어진 곳에 배치*/
+  font-size: 24px;
+  color: white;
+}
+
+.navbar-write {
+  display: none;
+}
+
+.navbar-mywrite {
+  display: none;
+}
+.navbar-login {
+  display: block;
+}
+.navbar-logout {
+  display: none;
+}
+.navbar-menu li:hover {
+  /*클릭시 색깔 변함*/
+  background-color: #d49466;
+  border-radius: 4px;
+}
+.navbar-login:hover,
+.navbar-logout:hover {
+  /*클릭시 색깔 변함*/
+  color: #d49466;
+}
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /*기존은 row, column으로 아래로 내림*/
+    align-items: flex-start; /*왼쪽으로 이동*/
+    padding: 8px 24px;
+  }
+  .navbar-menu {
+    display: none; /*화면에서 사라짐*/
+    flex-direction: column;
+    align-items: center; /*중앙배치*/
+    width: 100%; /*align-items가 반응하지 않는 부분을 width가 보완*/
+  }
+  .navbar-menu li {
+    /*hover부분이 넓어짐*/
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-sub-menu {
+    display: none;
+    justify-content: center; /*중앙 배치*/
+    width: 100%;
+  }
+  .navbar-toggleBtn {
+    /*화면이 작아질때만 표시되도록 함*/
+    display: block;
+  }
+  .navbar-menu.active,
+  .navbar-sub-menu.active {
+    /*navbar_toogleBtn이 클릭시 활성화*/
+    display: flex;
+  }
+}
