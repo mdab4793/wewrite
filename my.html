@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link href="css/my.css" rel="stylesheet" />
+    <link href="css/nav.css" rel="stylesheet" />
+    <link href="/css/footer.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum:ital@1&family=Gloria+Hallelujah&family=Orbitron&display=swap" rel="stylesheet" />
+  </head>
+  <body class="body">
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: 'AIzaSyAH-KOEpyYVknCZUEOh_YLiWHybaOfDIlI',
+        authDomain: 'wewrite-92f77.firebaseapp.com',
+        projectId: 'wewrite-92f77',
+        storageBucket: 'wewrite-92f77.appspot.com',
+        messagingSenderId: '286872322873',
+        appId: '1:286872322873:web:319f642b13c0375c649ee8',
+        measurementId: 'G-3N048SNN6W',
+      };
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <div class="wrapper">
+      <script src="nav.js"></script>
+    </div>
+    <div class="container"></div>
+    <!--footer-->
+    <footer class="footer-container">
+      <script src="js/footer.js" defer></script>
+    </footer>
+    <script>
+      const db = firebase.firestore(); //firebase 데이터 읽기
+      const storage = firebase.storage(); //storage다루는 문법
+      //처음부터 내uid가 있는 게시물만 가져와달라
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          console.log(user.uid);
+          $('#userName').html(user.displayName); //navbar에 유저이름 나타내기
+        }
+        var 로그인유저 = user.uid;
+        console.log(로그인유저);
+        db.collection('write')
+          .where('uid', '==', 로그인유저)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              console.log(doc.id, ' => ', doc.data());
+              //https://dulki.tistory.com/224 타임스탬프 참고
+              var timestamp = doc.data().date.toDate();
+              var date = new Date(timestamp);
+              /* 생성한 Date 객체에서 년, 월, 일, 시, 분을 각각 문자열 곧바로 추출 */
+              var year = date.getFullYear().toString().slice(-2); //년도 뒤에 두자리
+              var month = ('0' + (date.getMonth() + 1)).slice(-2); //월 2자리 (01, 02 ... 12)
+              var day = ('0' + date.getDate()).slice(-2); //일 2자리 (01, 02 ... 31)
+              var hour = ('0' + date.getHours()).slice(-2); //시 2자리 (00, 01 ... 23)
+              var minute = ('0' + date.getMinutes()).slice(-2); //분 2자리 (00, 01 ... 59)
+              var second = ('0' + date.getSeconds()).slice(-2); //초 2자리 (00, 01 ... 59)
+              var returnDate = year + '.' + month + '.' + day + '. ' + hour + ':' + minute + ':' + second;
+              var template = `<div class="my-main">
+                  <div class="my-thumbnail" style="background-image: url('${doc.data().image}')">
+                    <p class="my-content">${doc.data().content}</p></div>
+                  <div class="flex-grow-1 p-4">
+                    <h5 class="my-title">
+                      <a class="my-main-title" href="/detail.html?id=${doc.id}">${doc.data().title}</a></h5>
+                      <p class="date">${returnDate}</p>
+                    <p class="float-end"></p>
+                  </div>
+                  </div>`;
+              $('.container').append(template);
+            });
+          });
+      });
+    </script>
+  </body>
+</html>
