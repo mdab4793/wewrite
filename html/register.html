@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link href="/css/nav.css" rel="stylesheet" />
+    <link href="css/register.css" rel="stylesheet" />
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: 'AIzaSyAH-KOEpyYVknCZUEOh_YLiWHybaOfDIlI',
+        authDomain: 'wewrite-92f77.firebaseapp.com',
+        projectId: 'wewrite-92f77',
+        storageBucket: 'wewrite-92f77.appspot.com',
+        messagingSenderId: '286872322873',
+        appId: '1:286872322873:web:319f642b13c0375c649ee8',
+        measurementId: 'G-3N048SNN6W',
+      };
+
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <div class="wrapper"><script src="nav.js"></script></div>
+    <div class="container mt-3">
+      <div class="register-container">
+        <h3>register</h3>
+        <div class="mb-3">
+          <input type="text" class="register-name" placeholder="닉네임" id="name-new" />
+        </div>
+        <div class="mb-3">
+          <input type="email" class="register-email" placeholder="이메일" id="email-new" />
+        </div>
+        <form class="register-form" id="register-form">
+          <input type="password" class="register-pw" placeholder="비밀번호" id="pw-new" />
+          <input type="password" class="register-pw-check" placeholder="비밀번호 확인" id="pw-reCheck" />
+        </form>
+
+        <div id="checkPw">
+          <p class="pw-success" id="pw-success">비밀번호가 일치합니다.</p>
+          <p class="pw-failed" id="pw-failed">비밀번호가 일치하지 않습니다.</p>
+        </div>
+        <button type="submit" class="register-btn" id="register">가입하기</button>
+        <!-- <button type="button" class="register-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >가입하기</button> -->
+      </div>
+    </div>
+
+    <script src="user.js"></script>
+
+    <script>
+      const db = firebase.firestore(); //firebase 데이터 읽기
+      const storage = firebase.storage(); //storage다루는 문법
+
+      //#register를 .click했을때 function안에것을 실행하라
+      $('#register').click(function () {
+        var email = $('#email-new').val();
+        var password = $('#pw-new').val();
+        var name = $('#name-new').val();
+        //이메일 정규식,비밀번호 대문자포함
+        var emailCheck = document.getElementById('email-new').value;
+        var pwCheck = document.getElementById('pw-new').value;
+        var nameCheck = document.getElementById('name-new').value;
+        var pwReCheck = document.getElementById('pw-reCheck').value;
+        // 공백검사,정규식검사
+        if (nameCheck == '') {
+          alert('닉네임을 입력해 주세요.');
+          e.preventDefault();
+        }
+        if (emailCheck == '') {
+          alert('email을 입력해 주세요.');
+          e.preventDefault();
+        }
+        if (/\S+@\S+\.\S+/.test(emailCheck) == false) {
+          alert('email을 정확하게 입력해주세요.');
+          e.preventDefault();
+        }
+        if (pwCheck == '') {
+          alert('비밀번호를 입력해주세요.');
+          e.preventDefault();
+        }
+        if (/[A-Z]/.test(pwCheck) == false) {
+          alert('비밀번호는 대문자가 포함되어야합니다.');
+          e.preventDefault();
+        }
+
+        // //회원가입함수
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then((result) => {
+            alert('회원가입성공!');
+            window.location.href = 'index.html';
+            var 유저정보 = {
+              name: name,
+              email: email,
+            };
+            db.collection('user').doc(result.user.uid).set(유저정보);
+            result.user.updateProfile({
+              displayName: name,
+            });
+          });
+      });
+      //비밀번호 확인
+      $('#register-form').keyup(function () {
+        if ($('#pw-new').val() != $('#pw-reCheck').val()) {
+          $('#pw-failed').css('display', 'block');
+          $('#pw-success').css('display', 'none');
+          $('#pw-failed').css('color', 'red');
+        } else if ($('#pw-new').val() == $('#pw-reCheck').val()) {
+          $('#pw-success').css('display', 'block');
+          $('#pw-failed').css('display', 'none');
+          $('#pw-success').css('color', 'green');
+        }
+      });
+    </script>
+  </body>
+</html>
