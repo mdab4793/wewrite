@@ -9,6 +9,9 @@
   position: relative;
   top: 160px;
   transform: translateY(-100%);
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
 }
 .footer img {
   width: 20px;

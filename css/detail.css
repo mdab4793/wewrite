@@ -1,6 +1,9 @@
 .container {
   width: 100%;
   max-width: 1200px;
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
 }
 .detail-main {
   width: 100%;
@@ -40,6 +43,7 @@
   color: rgb(0, 0, 0);
   padding: 10px;
   margin-left: 2px;
+  display: none;
 }
 .detail-edit:hover,
 .detail-delete:hover {
@@ -85,7 +89,7 @@
   color: black;
 }
 .chat-name {
-  width: 5%;
+  width: 14%;
   font-size: 18px;
   font-weight: bold;
   padding: 5px;
@@ -138,7 +142,7 @@
   /* background-color: #3a3333; */
   color: white;
   width: 40%;
-  height: 20%;
+  height: 25%;
   position: relative;
   top: 30%;
   left: 30%;
@@ -161,11 +165,30 @@
   margin: 3px;
   padding: 12px;
   justify-content: space-between;
+  width: 15%;
 }
 .detail-modal-main button:hover {
   color: rgb(211, 175, 89);
 }
+@media screen and (max-width: 900px) {
+  .chat-input {
+    position: relative;
+    bottom: 27px;
+  }
+
+  .detail-modal-title {
+    font-size: 20px;
+  }
+
+  .detail-modal-main {
+    width: 50%;
+    height: 25%;
+  }
+}
+
 @media screen and (max-width: 768px) {
-  .detail-edit-delete {
+  .chat-input {
+    position: relative;
+    bottom: 27px;
   }
 }

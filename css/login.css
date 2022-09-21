@@ -1,3 +1,8 @@
+.body {
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
+}
 .login {
   text-align: center;
   margin-top: 200px;
@@ -29,4 +34,13 @@
 }
 #nav-mywrite {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .login-btn,
+  .register-btn {
+    width: 16%;
+    text-align: center;
+    left: 40%;
+  }
 }

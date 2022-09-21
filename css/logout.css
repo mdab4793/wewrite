@@ -1,3 +1,8 @@
+.body {
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
+}
 .container h4 {
   padding-top: 100px;
 }
@@ -25,4 +30,11 @@
 }
 #nav-mywrite {
   display: none;
+}
+@media screen and (max-width: 768px) {
+  .logout-btn {
+    width: 16%;
+    text-align: center;
+    left: 40%;
+  }
 }

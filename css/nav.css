@@ -119,6 +119,11 @@ body {
   /*클릭시 색깔 변함*/
   color: #d49466;
 }
+@media screen and (max-width: 900px) {
+  .navbar-menu {
+    padding-left: 80px;
+  }
+}
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column; /*기존은 row, column으로 아래로 내림*/

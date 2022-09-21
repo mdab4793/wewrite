@@ -1,11 +1,13 @@
+.body {
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
+}
 .register-container {
   text-align: center;
   margin-top: 200px;
 }
-.register-name {
-}
-.register-email {
-}
+
 .register-pw,
 .register-pw-check {
   margin: 4px;
@@ -22,10 +24,13 @@
 .register-btn {
   border-style: none;
   margin: 2px;
-  background-color: rgb(226, 151, 38);
+  background-color: #d49466;
   color: black;
   border-radius: 5px;
   padding: 4px;
+}
+.register-btn:hover {
+  background-color: rgb(211, 175, 89);
 }
 
 .pw-success {

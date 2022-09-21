@@ -1,3 +1,8 @@
+.body {
+  font-family: 'Cuprum', sans-serif;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Orbitron', sans-serif;
+}
 .my-main {
   display: flex;
   padding: 10px;
@@ -31,4 +36,57 @@
 }
 .my-main-title:hover {
   color: rgb(211, 175, 89);
+}
+@media screen and (max-width: 900px) {
+  .my-main {
+    flex-direction: column;
+  }
+
+  .my-thumbnail {
+    width: 100%;
+    max-width: 1000px;
+    height: 700px;
+  }
+
+  .flex-grow-1 {
+    text-align: center;
+  }
+  #topToggle {
+    position: sticky;
+    bottom: 5%;
+    left: 90%;
+    border-style: none;
+    background-color: rgb(0, 0, 0, 0);
+  }
+  #topToggle img {
+    width: 40x;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .my-main {
+    flex-direction: column;
+  }
+
+  .my-thumbnail {
+    width: 100%;
+    max-width: 1000px;
+    height: 700px;
+  }
+
+  .flex-grow-1 {
+    text-align: center;
+  }
+  #topToggle {
+    position: sticky;
+    bottom: 5%;
+    left: 90%;
+    border-style: none;
+    background-color: rgb(0, 0, 0, 0);
+  }
+  #topToggle img {
+    width: 40x;
+    height: 40px;
+  }
 }
