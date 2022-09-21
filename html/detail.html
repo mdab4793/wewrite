@@ -11,6 +11,7 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link href="css/detail.css" rel="stylesheet" />
     <link href="/css/nav.css" rel="stylesheet" />
     <link href="/css/nav.css" rel="stylesheet" />
@@ -66,9 +67,9 @@
         <div class="detail-pic" style="background-image: url()"></div>
         <p class="detail-content" id="content"></p>
 
-        <div class="detail-edit-delete">
+        <div class="detail-edit-delete" id="detail-edit-delete">
           <button id="edit" class="detail-edit" src="edit.html">수정하기</button>
-          <button class="detail-delete" id="detail-delete">삭제하기</button>
+          <button id="detail-delete" class="detail-delete">삭제하기</button>
         </div>
       </main>
 
@@ -129,13 +130,15 @@
             var admin = '07nkABFLbqPVwVAGTC4j1Z5ANAu1';
 
             if (로그인유저 === 게시물유저) {
+              // $('#detail-edit-delete').css('display', 'block');
               $('#edit').css('display', 'block');
-              $('#delete').css('display', 'block');
+              $('#detail-delete').css('display', 'block');
               $('.chat-delete').css('display', 'block');
             }
             if (로그인유저 === admin) {
+              // $('#detail-edit-delete').css('display', 'block');
               $('#edit').css('display', 'block');
-              $('#delete').css('display', 'block');
+              $('#detail-delete').css('display', 'block');
             }
 
             //댓글삭제

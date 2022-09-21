@@ -11,10 +11,13 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link href="/css/upload.css" rel="stylesheet" />
     <link href="/css/nav.css" rel="stylesheet" />
-    <link href="images/미리보기 사진.png" />   
-
+    <link href="images/미리보기 사진.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum:ital@1&family=Gloria+Hallelujah&family=Orbitron&display=swap" rel="stylesheet" />
   </head>
   <body class="body">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -40,11 +43,14 @@
 
       firebase.initializeApp(firebaseConfig);
     </script>
-  <div class="wrapper"><script src="nav.js"></script></div>
+    <div class="wrapper"><script src="nav.js"></script></div>
     <!--에디트 모달창-->
     <div class="upload-modal">
       <div class="upload-modal-main">
-        <h4 class="upload-modal-title">수정 하시겠습니까?</h4>
+        <h4 class="upload-modal-title">
+          수정 하시겠습니까?
+          <p>(출처가 있을경우 출처를 남겨주세요.)</p>
+        </h4>
         <div>
           <button type="button" class="upload-modal-delete" id="send">수정</button>
           <button type="button" class="upload-modal-close" id="close">닫기</button>
@@ -55,79 +61,76 @@
     <!--메인-->
     <div class="container">
       <div class="wrapper">
-      <!--타이틀-->
-      <input type="title" class="title" id="title" placeholder="제목" />
-      <!--에디터-->
-      <div class="upload-editor-menu">
-        <button id="btn-bold">
-          <b>B</b>
-        </button>
-        <button id="btn-italic">
-          <i>I</i>
-        </button>
-        <button id="btn-underline">
-          <u>U</u>
-        </button>
-        <button id="btn-strike">
-          <s>S</s>
-        </button>
-        <!--폰트-->
-        <select id="select-font-size">
-          <option value="">폰트 사이즈</option>
-          <option value="1">10px</option>
-          <option value="2">13px</option>
-          <option value="3">16px</option>
-          <option value="4">18px</option>
-          <option value="5">24px</option>
-          <option value="6">32px</option>
-          <option value="7">42px</option>
-        </select>
-        <select id="select-font-name">
-          <option value="">폰트</option>
-          <option value="Black Han Sans">Black Han Sans</option>
-          <option value="Noto Sans KR">Noto Sans</option>
-          <option value="Nanum Gothic">Nanum Gothic</option>
-          <option value="Nanum Myeongjo">Nanum Myeongjo</option>
-          <option value="Nanum Pen Script">Nanum Pen Script</option>
-        </select>
-        <select id="select-font-color">
-          <option value="">폰트 색상</option>
-          <option value="#000000">검정</option>
-          <option value="#FFFFFF">흰색</option>
-          <option value="#CCCCCC">회색</option>
-          <option value="#F03E3E">빨강</option>
-          <option value="#1971C2">파랑</option>
-          <option value="#37B24D">녹색</option>
-        </select>
-        <select id="select-font-background">
-          <option value="rgba(0, 0, 0, 0)">폰트 백그라운드(없음)</option>
-          <option value="#000000">검정</option>
-          <option value="#FFFFFF">흰색</option>
-          <option value="#CCCCCC">회색</option>
-          <option value="#F03E3E">빨강</option>
-          <option value="#1971C2">파랑</option>
-          <option value="#37B24D">녹색</option>
-        </select>
+        <!--타이틀-->
+        <input type="title" class="title" id="title" placeholder="제목" />
+        <!--에디터-->
+        <div class="upload-editor-menu">
+          <button id="btn-bold">
+            <b>B</b>
+          </button>
+          <button id="btn-italic">
+            <i>I</i>
+          </button>
+          <button id="btn-underline">
+            <u>U</u>
+          </button>
+          <button id="btn-strike">
+            <s>S</s>
+          </button>
+          <!--폰트-->
+          <select id="select-font-size">
+            <option value="">폰트 사이즈</option>
+            <option value="1">10px</option>
+            <option value="2">13px</option>
+            <option value="3">16px</option>
+            <option value="4">18px</option>
+            <option value="5">24px</option>
+            <option value="6">32px</option>
+            <option value="7">42px</option>
+          </select>
+          <select id="select-font-name">
+            <option value="">폰트</option>
+            <option value="Black Han Sans">Black Han Sans</option>
+            <option value="Noto Sans KR">Noto Sans</option>
+            <option value="Nanum Gothic">Nanum Gothic</option>
+            <option value="Nanum Myeongjo">Nanum Myeongjo</option>
+            <option value="Nanum Pen Script">Nanum Pen Script</option>
+          </select>
+          <select id="select-font-color">
+            <option value="">폰트 색상</option>
+            <option value="#000000">검정</option>
+            <option value="#FFFFFF">흰색</option>
+            <option value="#CCCCCC">회색</option>
+            <option value="#F03E3E">빨강</option>
+            <option value="#1971C2">파랑</option>
+            <option value="#37B24D">녹색</option>
+          </select>
+          <select id="select-font-background">
+            <option value="rgba(0, 0, 0, 0)">폰트 백그라운드(없음)</option>
+            <option value="#000000">검정</option>
+            <option value="#FFFFFF">흰색</option>
+            <option value="#CCCCCC">회색</option>
+            <option value="#F03E3E">빨강</option>
+            <option value="#1971C2">파랑</option>
+            <option value="#37B24D">녹색</option>
+          </select>
 
-        <button id="btn-ordered-list">OL</button>
-        <button id="btn-unordered-list">UL</button>
-        <div class="form-control mt-2" id="content" contenteditable="true"></div>
-        <input class="form-control mt-2" type="file" id="image" value="image" accept="image/*" onchange="readURL(this);" />
-       
-        <div class="origin"> <button class="upload" id="upload">수정하기</button>
-        <p class="source">출처가 있을경우 반드시 출처를 남겨주세요.<br/>
-          (저작권 위배시 통보없이 삭제될수있습니다.)
-          </p>
+          <button id="btn-ordered-list">OL</button>
+          <button id="btn-unordered-list">UL</button>
+          <div class="form-control mt-2" id="content" contenteditable="true"></div>
+          <input class="form-control mt-2" type="file" id="image" value="image" accept="image/*" onchange="readURL(this);" />
+
+          <div class="origin"><button class="upload" id="upload">수정하기</button></div>
+        </div>
       </div>
-       </div>
-    </div>
-    <h4 class="upload-img-preview">
-      이미지 미리보기<br />
-      (이미지 미리보기만 가능합니다.)
-    </h4>
-    
-    <div class="upload-previe-box">
-      <img id="upload-preview" src="images/미리보기 사진.png" />
+      <h4 class="upload-img-preview">
+        이미지 미리보기<br />
+        (이미지 미리보기만 가능합니다.)
+      </h4>
+
+      <div class="upload-previe-box">
+        <img id="upload-preview" src="images/미리보기 사진.png" />
+      </div>
     </div>
     <script>
       $('#upload').on('click', function () {

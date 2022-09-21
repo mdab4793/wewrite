@@ -11,6 +11,7 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link href="css/my.css" rel="stylesheet" />
     <link href="css/nav.css" rel="stylesheet" />
     <link href="/css/footer.css" rel="stylesheet" />
@@ -79,8 +80,7 @@
               var day = ('0' + date.getDate()).slice(-2); //일 2자리 (01, 02 ... 31)
               var hour = ('0' + date.getHours()).slice(-2); //시 2자리 (00, 01 ... 23)
               var minute = ('0' + date.getMinutes()).slice(-2); //분 2자리 (00, 01 ... 59)
-              var second = ('0' + date.getSeconds()).slice(-2); //초 2자리 (00, 01 ... 59)
-              var returnDate = year + '.' + month + '.' + day + '. ' + hour + ':' + minute + ':' + second;
+              var returnDate = year + '.' + month + '.' + day + '. ' + hour + ':' + minute;
               var template = `<div class="my-main">
                   <div class="my-thumbnail" style="background-image: url('${doc.data().image}')">
                     <p class="my-content">${doc.data().content}</p></div>

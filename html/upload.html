@@ -11,6 +11,7 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link href="/css/nav.css" rel="stylesheet" />
     <link href="/css/upload.css" rel="stylesheet" />
     <link href="images/미리보기 사진.png" />
@@ -20,6 +21,9 @@
       href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cuprum:ital@1&family=Gloria+Hallelujah&family=Orbitron&display=swap" rel="stylesheet" />
   </head>
   <body class="body">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -46,13 +50,14 @@
       firebase.initializeApp(firebaseConfig);
     </script>
 
-
-
     <div class="wrapper"><script src="nav.js"></script></div>
     <!--업로드 모달창-->
     <div class="upload-modal">
       <div class="upload-modal-main">
-        <h4 class="upload-modal-title">업로드 하시겠습니까?</h4>
+        <h3 class="upload-modal-title">
+          업로드 하시겠습니까? <br />
+          <p>(출처가 있을경우 출처를 남겨주세요.)</p>
+        </h3>
         <div>
           <button type="button" class="upload-modal-upload" id="send">올리기</button>
           <button type="button" class="upload-modal-close" id="close">닫기</button>
@@ -62,9 +67,9 @@
     <!--메인-->
     <div class="container">
       <div class="wrapper">
-            <!--타이틀-->
+        <!--타이틀-->
         <input type="title" class="title" id="title" placeholder="제목" />
-            <!--에디터-->
+        <!--에디터-->
         <div class="upload-editor-menu">
           <button id="btn-bold">
             <b>B</b>
@@ -122,35 +127,24 @@
 
           <div class="form-control mt-2" id="content" contenteditable="true"></div>
           <input class="form-control mt-2" type="file" id="image" value="image" accept="image/*" onchange="readURL(this);" />
-          <div class="origin">
-            <button  class="upload" id="upload">올리기</button>
-              <p class="source">출처가 있을경우 반드시 출처를 남겨주세요.<br/>
-              (저작권 위배시 통보없이 삭제될수있습니다.)
-              </p>
-                
-          </div>
 
+          <div class="origin">
+            <button class="upload" id="upload">올리기</button>
+            <!-- <span class="source">
+              출처가 있을경우 반드시 출처를 남겨주세요.<br />
+              (저작권 위배시 통보없이 삭제될수있습니다.)
+            </span> -->
+          </div>
         </div>
       </div>
-      <h4 class="upload-img-preview">이미지 미리보기<br/>
-      (이미지 미리보기만 가능합니다.)
+      <h4 class="upload-img-preview">
+        이미지 미리보기<br />
+        (이미지 미리보기만 가능합니다.)
       </h4>
 
-      <!-- 
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">업로드 하시겠습니까?</div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-              <button type="button" id="send" class="btn btn-primary">업로드하기</button>
-            </div>
-          </div>
-        </div>
+      <div class="upload-previe-box">
+        <img id="upload-preview" src="images/미리보기 사진.png" />
       </div>
-    </div>Modal -->
-    <div class="upload-previe-box">
-      <img id="upload-preview" src="images/미리보기 사진.png" />
     </div>
     <script>
       $('#upload').on('click', function () {
@@ -359,7 +353,7 @@
           alert('사진을 넣어 주세요.');
           e.preventDefault();
         }
-       
+
         // 스토리지에 사진저장하는문법 (send버튼을 누르면 )
         var file = document.querySelector('#image').files[0];
         var storageRef = storage.ref();

@@ -19,10 +19,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cuprum:ital@1&family=Gloria+Hallelujah&family=Orbitron&display=swap" rel="stylesheet" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cuprum:ital@1&family=Gloria+Hallelujah&family=Orbitron&display=swap" rel="stylesheet" />
   </head>
   <body class="body">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -51,7 +47,7 @@
     <div class="wrapper"><script src="nav.js"></script></div>
     <!--메인화면-->
     <div class="container"></div>
-    <button id="top"><img src="https://github.com/mdab4793/wewrite/blob/main/%E1%84%86%E1%85%A2%E1%86%AB%E1%84%8B%E1%85%B1.png?raw=true" /></button>
+    <button id="topToggle"><img src="https://github.com/mdab4793/wewrite/blob/main/%E1%84%86%E1%85%A2%E1%86%AB%E1%84%8B%E1%85%B1.png?raw=true" /></button>
     <!--footer-->
     <footer class="footer-container">
       <script src="js/footer.js" defer></script>
@@ -73,16 +69,21 @@
             var day = ('0' + date.getDate()).slice(-2); //일 2자리 (01, 02 ... 31)
             var hour = ('0' + date.getHours()).slice(-2); //시 2자리 (00, 01 ... 23)
             var minute = ('0' + date.getMinutes()).slice(-2); //분 2자리 (00, 01 ... 59)
-            var second = ('0' + date.getSeconds()).slice(-2); //초 2자리 (00, 01 ... 59)
-            var returnDate = year + '.' + month + '.' + day + '. ' + hour + ':' + minute + ':' + second;
+            // var second = ('0' + date.getSeconds()).slice(-2); //초 2자리 (00, 01 ... 59) + ':' + second
+            var returnDate = year + '.' + month + '.' + day + '. ' + hour + ':' + minute;
             var template = `<div class="index-main">   
-                  <div class="index-thumbnail"  style="background-image: url('${doc.data().image}')">
-                    <p class="index-content">${doc.data().content}</p></div>
+                  <div class='index-thumbnail-content'>     
+                    <div class="index-thumbnail"  style="background-image: url('${doc.data().image}')">
+                    <p class="index-content">${doc.data().content}</p>
+                    </div>
+                  </div>
+           
                   <div class="flex-grow-1 p-4">
                     <h5 class="title">
-                      <a class="index-main-title" href="/detail.html?id=${doc.id}">${doc.data().title}</a></h5>
+                      <a class="index-main-title" href="/detail.html?id=${doc.id}">${doc.data().title}</a>
+                    </h5>
                     <p class="date">${returnDate}</p>
-                    <p class="float-end"></p>
+                
                   </div>
                   </div>`;
             $('.container').append(template);
@@ -103,13 +104,13 @@
         $(window).scroll(function () {
           // top button controll
           if ($(this).scrollTop() > 500) {
-            $('#top').fadeIn();
+            $('#topToggle').fadeIn();
           } else {
-            $('#top').fadeOut();
+            $('#topToggle').fadeOut();
           }
         });
 
-        $('#top').click(function () {
+        $('#topToggle').click(function () {
           $('html, body').animate({ scrollTop: 0 }, '300');
         });
       });
