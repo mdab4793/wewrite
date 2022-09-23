@@ -1,7 +1,10 @@
 # wewrite
-생각많은 새벽 생각을 글로 옮겨적을수 있는 웹사이트를 만들어 보았습니다.
+생각이많아지는 시간 새벽2시, 그 생각을 글로 옮겨적을수 있는 웹사이트를 만들어 보았습니다.
+
 사용기술 html,css,js,jquery,firebase
+
 호스팅사이트: https://wewrite-92f77.web.app/index.html
+
 테스트용 id,pw: test123@naver.com
               Test123
 
