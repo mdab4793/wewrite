@@ -5,7 +5,7 @@
 
 호스팅사이트: https://wewrite-92f77.web.app/index.html
 
-테스트용 id,pw: test123@naver.com
+테스트용 id,pw: test1@naver.com
               Test123
 
 1.사이트의 메인페이지입니다.
